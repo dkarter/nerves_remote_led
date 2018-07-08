@@ -16,16 +16,12 @@ defmodule RemoteLed.Application do
 
   # List all child processes to be supervised
   def children("host") do
-    [
-      # Starts a worker by calling: RemoteLed.Worker.start_link(arg)
-      # {RemoteLed.Worker, arg},
-    ]
+    []
   end
 
   def children(_target) do
     [
-      # Starts a worker by calling: RemoteLed.Worker.start_link(arg)
-      # {RemoteLed.Worker, arg},
+      RemoteLed.LedWorker
     ]
   end
 end
