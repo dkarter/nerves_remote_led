@@ -41,7 +41,11 @@ config :nerves_init_gadget,
   node_host: :mdns_domain,
   ssh_console_port: 22
 
-# config :logger, backends: [RingLogger]
+config :logger, backends: [RingLogger]
+
+config :remote_led, RemoteLed.LedSocket,
+  url: "ws://ghost.local/socket/websocket",
+  serializer: Jason
 
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

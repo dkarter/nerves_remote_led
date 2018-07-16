@@ -38,7 +38,9 @@ defmodule RemoteLed.MixProject do
   defp deps do
     [
       {:nerves, "~> 1.0", runtime: false},
-      {:shoehorn, "~> 0.2"}
+      {:shoehorn, "~> 0.2"},
+      {:phoenix_channel_client, github: "mobileoverlord/phoenix_channel_client"},
+      {:jason, "~> 1.0"}
     ] ++ deps(@target)
   end
 
@@ -47,7 +49,7 @@ defmodule RemoteLed.MixProject do
 
   defp deps(target) do
     [
-      {:nerves_runtime, "~> 0.4"},
+      {:nerves_runtime, "~> 0.6"},
       {:elixir_ale, "~> 1.0.3"},
       {:nerves_init_gadget, "~> 0.4.0"}
     ] ++ system(target)
