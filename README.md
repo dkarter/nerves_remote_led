@@ -31,9 +31,8 @@ Here are a few pictures of my setup:
 ![hardware setup 5](img/5.jpeg)
 
 
-For the GPIO pin I chose GPIO 21, but if you want to change that you can do so
-in the LedWorker modules in the client (firmware) directory under the `@pin`
-constant.
+For the GPIO, I chose GPIO 21, however if you want to change that you can do so
+by changing the `@pin` constant in the firmware's `LedWorker` module.
 
 ## Running Locally
 
@@ -95,6 +94,48 @@ cd ../server
 mix do deps.get, phx.server
 ```
 
+Once the server is running, plug in the power cord to your nerves device.
+
+After a few seconds you should be able to connect to the device via ssh: 
+
+```bash
+ssh remote_led.local
+```
+
+Hopefully at this step you are able to connect successfully and are seeing the
+iex repl. I suggest tailing the logs and then attaching to receive future log
+messages:
+
+```elixir
+iex> RingLogger.tail
+iex> RingLogger.attach
+```
+
+To test you wired the LED correctly you can try to run:
+
+```elixir
+iex> RemoteLed.LedWorker.on
+```
+
+and
+
+```elixir
+iex> RemoteLed.LedWorker.off
+```
+
+To connect the channel manually type:
+
+```elixir
+iex> RemoteLed.Client.connect
+```
+
+If everything worked correctly you should be able to see that a new client has
+connected to the Phoenix server by checking the logs on the server.
+
+Now the final and most exciting step, turning the LED on and off from the
+server. Open up http://localhost:4000 on your host machine and click the On and
+Off buttons. Follow the code in server/priv/static/js/app.js to figure out how
+this is done and open an issue if you have any questions.
 
 ## Deploying Server
 
