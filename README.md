@@ -4,8 +4,14 @@ This is an example demonstrating how to connect Nerves embedded devices to a
 Phoenix server and control the device remotely using websockets.
 
 Using websockets allows controlling devices over a firewalled network since it
-can connect to the server over port 80 via TCP, and outgoing connections to port
-80 are universally allowed on all home/corporate routers.
+can open a bi-directional TCP connection to the server over port 80, and
+outgoing connections to port 80 are generally allowed on most home/corporate
+routers/firewalls.
+
+# TOC
+- [Hardware Requirements for Running the Demo](#hardware-requirements-for-running-the-demo)
+- [Running Locally](#running-locally)
+- [Deploying Server](#deploying-server)
 
 ## Hardware Requirements for Running the Demo
 
