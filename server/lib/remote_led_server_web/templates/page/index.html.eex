@@ -1,0 +1,2 @@
+<button type="button" data-on-button>On</button>
+<button type="button" data-off-button>Off</button>

@@ -1,0 +1,2 @@
+defmodule RemoteLed do
+end
