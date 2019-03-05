@@ -1,4 +1,4 @@
-# RemoteLed
+# Nerves Remote LED
 
 This is an example demonstrating how to connect Nerves embedded devices to a
 Phoenix server and control the device remotely using websockets.
